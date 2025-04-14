@@ -51,10 +51,10 @@ public class Equipment {
 //    @ManyToOne
 //    @JoinColumn(name = "id_condition", nullable = false)
 //    private Condition condition;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id_cat_equip", nullable = false)
-//    private CategoryEquipment categoryEquipment;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cat_equip", nullable = false)
+    protected CatEquipment catEquipment;
 //
 //    @ManyToOne
 //    @JoinColumn(name = "id_equipmentProfil", nullable = false)

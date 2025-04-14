@@ -1,9 +1,10 @@
-INSERT INTO user_profile (description)
-VALUES ('admin_User'),
-       ('intern_User'),
-       ('employee_User');
+INSERT INTO user_profile (name_userprofil, description_userprofil)
+VALUES ('admin_User', ""),
+       ('intern_User', ""),
+       ('employee_User', "");
 
-INSERT INTO equipment (id_equipment, name_equipment, description_equipment, serialNum_equipment, purchasedate_equipment,
+INSERT INTO equipment (id_equipment, name_equipment, description_equipment, serial_num_equipment,
+                       purchasedate_equipment,
                        id_cat_equip, id_status_equipment, id_condition, equipment_profil)
 VALUES ('EQ001', 'Dell XPS 15 Laptop', 'High-performance developer laptop', 'XPS15-9560-A7842', '2023-05-15', 1, 1,
         'A01', 'X'),

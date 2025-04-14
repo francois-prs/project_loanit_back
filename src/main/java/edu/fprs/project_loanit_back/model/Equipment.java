@@ -16,24 +16,24 @@ public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Integer id_equipment;
+    protected Integer idEquipment;
 
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String name_equipment;
+    protected String nameEquipment;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    protected String description_equipment;
+    protected String descriptionEquipment;
 
     @Column(length = 10, nullable = false, unique = true)
 //    @Length(max = 10, min = 3)
     @NotBlank
-    protected String serialNum_equipment;
+    protected String serialNumEquipment;
 
     @Column(nullable = false)
 //    @Temporal(TemporalType.DATE)
-    protected LocalDateTime purchasedate_equipment;
+    protected LocalDateTime purchasedateEquipment;
 
 
 //    @ManyToMany

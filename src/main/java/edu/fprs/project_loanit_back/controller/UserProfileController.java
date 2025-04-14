@@ -23,19 +23,23 @@ public class UserProfileController {
 
 
     //Get all user profiles return List of all user profiles
-    @GetMapping
+    @GetMapping("/userprofile")
     public ResponseEntity<List<UserProfile>> getAllUserProfiles() {
         List<UserProfile> userProfiles = userProfileDao.findAll();
         return new ResponseEntity<>(userProfiles, HttpStatus.OK);
     }
 
     //Get a user profile by ID / @param id The ID of the user profile / * @return The user profile if found
-    @GetMapping("/{id}")
-    public ResponseEntity<UserProfile> getUserProfileById(@PathVariable Integer id) {
-        Optional<UserProfile> userProfile = userProfileDao.findById(id);
-        return userProfile
-                .map(profile -> new ResponseEntity<>(profile, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @GetMapping("userprofile/{id}")
+    public ResponseEntity<UserProfile> getUserProfileById(@PathVariable int id) {
+        Optional<UserProfile> optionalUserProfile = userProfileDao.findById(id);
+
+        if (optionalUserProfile.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(optionalUserProfile.get(), HttpStatus.OK);
+
     }
 
     //Create a new user profile /@param userProfile The user profile to create /@return The created user profile
@@ -49,19 +53,19 @@ public class UserProfileController {
     // @param id                 The ID of the user profile to update
     // @param userProfileDetails The updated user profile details
     // @return The updated user profile
-    @PutMapping("/{id}")
-    public ResponseEntity<UserProfile> updateUserProfile(
-            @PathVariable Integer id,
-            @RequestBody UserProfile userProfileDetails) {
-
-        return userProfileDao.findById(id)
-                .map(existingProfile -> {
-                    existingProfile.setDescription(userProfileDetails.getDescription());
-                    UserProfile updatedProfile = userProfileDao.save(existingProfile);
-                    return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
-                })
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<UserProfile> updateUserProfile(
+//            @PathVariable Integer id,
+//            @RequestBody UserProfile userProfileDetails) {
+//
+//        return userProfileDao.findById(id)
+//                .map(existingProfile -> {
+//                    existingProfile.setDescription(userProfileDetails.getDescription());
+//                    UserProfile updatedProfile = userProfileDao.save(existingProfile);
+//                    return new ResponseEntity<>(updatedProfile, HttpStatus.OK);
+//                })
+//                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    }
 
     // Delete a user profil /@param id The ID of the user profile to delete /@return No content response
     @DeleteMapping("/{id}")

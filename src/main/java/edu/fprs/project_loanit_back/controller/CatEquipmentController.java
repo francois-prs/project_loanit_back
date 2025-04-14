@@ -1,5 +1,6 @@
 package edu.fprs.project_loanit_back.controller;
 
+import edu.fprs.project_loanit_back.dao.CatEquipmentDao;
 import edu.fprs.project_loanit_back.model.CatEquipment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,12 +14,13 @@ import java.util.Optional;
 @RestController
 public class CatEquipmentController {
 
+    @Autowired
     protected CatEquipmentDao catEquipmentDao;
 
-    @Autowired
-    public CatEquipmentController(CatEquipmentDao catEquipmentDao) {
-        this.catEquipmentDao = catEquipmentDao;
-    }
+//    @Autowired
+//    public CatEquipmentController(CatEquipmentDao catEquipmentDao) {
+//        this.catEquipmentDao = catEquipmentDao;
+//    }
 
     @GetMapping("/category")
     public List<CatEquipment> getAll() {
@@ -28,7 +30,7 @@ public class CatEquipmentController {
     @GetMapping("/category/{id}")
     public ResponseEntity<CatEquipment> get(@PathVariable int id) {
 
-        Optional<CatEquipment> optionalCategory = catEquipmentDao.findById(id);
+        Optional<CatEquipment> optionalCatEquipment = catEquipmentDao.findById(id);
 
         if (optionalCatEquipment.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -38,8 +40,8 @@ public class CatEquipmentController {
     }
 
     @PostMapping("/category")
-    public ResponseEntity<CatEquipment> createCat(@RequestBody CatEquipment catEquipment) {
-        catEquipmentDao.createCat(catEquipment);
+    public ResponseEntity<CatEquipment> save(@RequestBody CatEquipment catEquipment) {
+        catEquipmentDao.save(catEquipment);
         return new ResponseEntity<>(catEquipment, HttpStatus.CREATED);
     }
 
@@ -61,7 +63,7 @@ public class CatEquipmentController {
     @PutMapping("/category/{id}")
     public ResponseEntity<CatEquipment> update(
             @PathVariable int id,
-            @RequestBody CatEquipment etat) {
+            @RequestBody CatEquipment catEquipment) {
 
         Optional<CatEquipment> optionalCatEquipment = catEquipmentDao.findById(id);
 
@@ -69,9 +71,9 @@ public class CatEquipmentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        catEquipment.setId(id);
+        catEquipment.setIdCatEquipment(id);
 
-        catEquipmentDao.createCat(catEquipment);
+        catEquipmentDao.save(catEquipment);
 
         return new ResponseEntity<>(catEquipment, HttpStatus.NO_CONTENT);
 

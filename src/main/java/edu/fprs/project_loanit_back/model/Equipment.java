@@ -47,13 +47,14 @@ public class Equipment {
 //    @ManyToOne
 //    @JoinColumn(name = "id_status", nullable = false)
 //    private StatusEquipment status;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id_condition", nullable = false)
-//    private Condition condition;
 
     @ManyToOne
-    @JoinColumn(name = "id_cat_equip", nullable = false)
+    @JoinColumn(nullable = false)
+    protected ConditionEquipment conditionEquipment;
+
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
     protected CatEquipment catEquipment;
 //
 //    @ManyToOne

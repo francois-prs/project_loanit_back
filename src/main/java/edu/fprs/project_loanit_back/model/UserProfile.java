@@ -1,6 +1,9 @@
 package edu.fprs.project_loanit_back.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import edu.fprs.project_loanit_back.view.Affichage;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +18,12 @@ public class UserProfile {
     protected Integer id; //Integer etant un objet il peut avoir une valeur nulle
 
     @Column(nullable = false)
-    protected String description;
+    @NotBlank
+    @JsonView(Affichage.class)
+    protected String nameUserprofil;
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    protected String descriptionUserprofil;
 
 
 }

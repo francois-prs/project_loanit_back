@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProfilEquipmentDao extends JpaRepository<ProfilEquipment, Long> {
+public interface ProfilEquipmentDao extends JpaRepository<ProfilEquipment, Integer> {
 
 
 }

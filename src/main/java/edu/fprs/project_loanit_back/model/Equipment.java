@@ -56,9 +56,9 @@ public class Equipment {
     @ManyToOne
     @JoinColumn(nullable = false)
     protected CatEquipment catEquipment;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id_equipmentProfil", nullable = false)
-//    private EquipmentProfile equipmentProfile;
+
+    @ManyToOne
+    @JoinColumn(name = "id_equipmentProfil", nullable = false)
+    private ProfilEquipment profilEquipment;
 
 }

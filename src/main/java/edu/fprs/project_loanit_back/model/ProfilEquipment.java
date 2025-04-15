@@ -18,6 +18,6 @@ public class ProfilEquipment {
 
     @Column(nullable = false)
     @NotBlank
-    @JsonView(Affichage.class)
+    @JsonView(Affichage.class) // A quoi ça sert???
     protected String nameProfilEquipment;
 }

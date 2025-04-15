@@ -36,7 +36,7 @@ public class Equipment {
     protected LocalDateTime purchasedateEquipment;
 
 
-//    @ManyToMany
+    //    @ManyToMany
 //    @JoinTable(
 //            name = "etiquette_produit",
 //            joinColumns = @JoinColumn(name = "produit_id"),//pour renommer la colonne
@@ -44,9 +44,9 @@ public class Equipment {
 //
 //    )
 //
-//    @ManyToOne
-//    @JoinColumn(name = "id_status", nullable = false)
-//    private StatusEquipment status;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private StatusEquipment statusEquipment;
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -58,7 +58,7 @@ public class Equipment {
     protected CatEquipment catEquipment;
 
     @ManyToOne
-    @JoinColumn(name = "id_equipmentProfil", nullable = false)
+    @JoinColumn(nullable = false)
     private ProfilEquipment profilEquipment;
 
 }

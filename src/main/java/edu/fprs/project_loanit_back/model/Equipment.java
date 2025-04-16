@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 public class Equipment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Integer idEquipment;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected String idEquipment;
 
     @Column(nullable = false)
     @NotBlank

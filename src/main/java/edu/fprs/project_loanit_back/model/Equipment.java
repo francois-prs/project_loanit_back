@@ -7,15 +7,15 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
 public class Equipment {
 
+    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected String idEquipment;
 
     @Column(nullable = false)
@@ -26,14 +26,15 @@ public class Equipment {
     @Column(columnDefinition = "TEXT", nullable = false)
     protected String descriptionEquipment;
 
-    @Column(length = 10, nullable = false, unique = true)
-//    @Length(max = 10, min = 3)
+    //    @Length(max = 10, min = 3)
+    @Column(length = 30, nullable = false, unique = true)
     @NotBlank
     protected String serialNumEquipment;
 
-    @Column(nullable = false)
 //    @Temporal(TemporalType.DATE)
-    protected LocalDateTime purchasedateEquipment;
+
+    @Column(nullable = false)
+    protected LocalDate purchasedateEquipment;
 
 
     //    @ManyToMany
@@ -44,21 +45,22 @@ public class Equipment {
 //
 //    )
 //
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private StatusEquipment statusEquipment;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
-    protected ConditionEquipment conditionEquipment;
-
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "id_cat_equipment", nullable = false)
     protected CatEquipment catEquipment;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "id_condition_equipment", nullable = false)
+    protected ConditionEquipment conditionEquipment;
+
+    @ManyToOne
+    @JoinColumn(name = "id_profil_equipment", nullable = false)
     private ProfilEquipment profilEquipment;
+
+    @ManyToOne
+    @JoinColumn(name = "id_status_equipment", nullable = false)
+    private StatusEquipment statusEquipment;
+
 
 }

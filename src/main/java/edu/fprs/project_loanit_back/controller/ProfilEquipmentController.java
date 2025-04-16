@@ -23,7 +23,7 @@ public class ProfilEquipmentController {
     }
 
     @GetMapping("/profilequipment/{id}")
-    public ResponseEntity<ProfilEquipment> get(@PathVariable int id) {
+    public ResponseEntity<ProfilEquipment> get(@PathVariable String id) {
 
         Optional<ProfilEquipment> optionalProfilEquipment = profilEquipmentDao.findById(id);
 
@@ -41,7 +41,7 @@ public class ProfilEquipmentController {
     }
 
     @DeleteMapping("/profilequipment/{id}")
-    public ResponseEntity<ProfilEquipment> delete(@PathVariable int id) {
+    public ResponseEntity<ProfilEquipment> delete(@PathVariable String id) {
 
         Optional<ProfilEquipment> optionalProfilEquipment = profilEquipmentDao.findById(id);
 
@@ -57,7 +57,7 @@ public class ProfilEquipmentController {
 
     @PutMapping("/profilequipment/{id}")
     public ResponseEntity<ProfilEquipment> update(
-            @PathVariable int id,
+            @PathVariable String id,
             @RequestBody ProfilEquipment profilEquipment) {
 
         Optional<ProfilEquipment> optionalProfilEquipment = profilEquipmentDao.findById(id);

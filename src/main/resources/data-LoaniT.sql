@@ -1,11 +1,33 @@
-INSERT INTO user_profile (name_userprofil, description_userprofil)
-VALUES ('admin_User', ""),
-       ('intern_User', ""),
-       ('employee_User', "");
+INSERT INTO cat_equipment (name_cat_equipment)
+VALUES ('Computers'),
+       ('Peripherals'),
+       ('Displays'),
+       ('Storage'),
+       ('Networking'),
+       ('Specialised Hardware'),
+       ('VR Headset');
+
+INSERT INTO condition_equipment (id_condition_equipment, name_condition_equipment)
+VALUES ('A01', 'Excellent'),
+       ('B02', 'Good'),
+       ('C03', 'Fair'),
+       ('D04', 'Poor'),
+       ('E05', 'Broken');
+
+INSERT INTO profil_equipment (id_profil_equipment, name_profil_equipment)
+VALUES ('X', 'Standard'),
+       ('Y', 'Professional'),
+       ('Z', 'Premium');
+
+INSERT INTO status_equipment (name_status_equipment)
+VALUES ('Available'),
+       ('In Use'),
+       ('Under Repair'),
+       ('Reserved');
 
 INSERT INTO equipment (id_equipment, name_equipment, description_equipment, serial_num_equipment,
-                       purchasedate_equipment,
-                       id_cat_equip, id_status_equipment, id_condition, equipment_profil)
+                       purchasedate_equipment, id_cat_equipment, id_status_equipment, id_condition_equipment,
+                       id_profil_equipment)
 VALUES ('EQ001', 'Dell XPS 15 Laptop', 'High-performance developer laptop', 'XPS15-9560-A7842', '2023-05-15', 1, 1,
         'A01', 'X'),
        ('EQ002', 'Canon EOS 5D Mark IV', 'Professional DSLR camera', 'CN5478923145', '2022-11-03', 2, 2, 'A01', 'Y'),

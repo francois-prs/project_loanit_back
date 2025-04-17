@@ -20,10 +20,7 @@ public class UserProfile {
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String nameUserprofil;
-
-    @Column(columnDefinition = "TEXT", nullable = false)
-    protected String descriptionUserprofil;
+    protected String nameUserProfil;
 
 
 }

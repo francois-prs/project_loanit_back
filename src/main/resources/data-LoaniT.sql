@@ -96,3 +96,8 @@ VALUES ('EQ001', 'Dell XPS 15 Laptop', 'High-performance developer laptop', 'XPS
        ('EQ049', 'HP Z2 Tower G9', 'Workstation with RTX A4000', 'HPZ2G9-96358', '2023-07-01', 1, 1, 'A01', 'Z'),
        ('EQ050', 'Lenovo ThinkStation P360', 'Compact workstation', 'LTS-P360-85214', '2023-05-08', 1, 2, 'A01', 'Z'),
        ('EQ051', 'Apple Vision Pro', 'Spatial computing headset', 'AVP-24-123456', '2024-02-02', 7, 4, 'A01', 'Z');
+
+INSERT INTO user_profile (name_user_profil)
+VALUES ('administrator'),
+       ('superuser'),
+       ('junior');

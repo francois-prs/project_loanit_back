@@ -14,7 +14,7 @@ VALUES ('A01', 'Excellent'),
        ('D04', 'Poor'),
        ('E05', 'Broken');
 
-INSERT INTO profil_equipment (id_profil_equipment, name_profil_equipment)
+INSERT INTO profile_equipment (id_profile_equipment, name_profile_equipment)
 VALUES ('X', 'Standard'),
        ('Y', 'Professional'),
        ('Z', 'Premium');
@@ -27,7 +27,7 @@ VALUES ('Available'),
 
 INSERT INTO equipment (id_equipment, name_equipment, description_equipment, serial_num_equipment,
                        purchasedate_equipment, id_cat_equipment, id_status_equipment, id_condition_equipment,
-                       id_profil_equipment)
+                       id_profile_equipment)
 VALUES ('EQ001', 'Dell XPS 15 Laptop', 'High-performance developer laptop', 'XPS15-9560-A7842', '2023-05-15', 1, 1,
         'A01', 'X'),
        ('EQ002', 'Canon EOS 5D Mark IV', 'Professional DSLR camera', 'CN5478923145', '2022-11-03', 2, 2, 'A01', 'Y'),
@@ -96,3 +96,45 @@ VALUES ('EQ001', 'Dell XPS 15 Laptop', 'High-performance developer laptop', 'XPS
        ('EQ049', 'HP Z2 Tower G9', 'Workstation with RTX A4000', 'HPZ2G9-96358', '2023-07-01', 1, 1, 'A01', 'Z'),
        ('EQ050', 'Lenovo ThinkStation P360', 'Compact workstation', 'LTS-P360-85214', '2023-05-08', 1, 2, 'A01', 'Z'),
        ('EQ051', 'Apple Vision Pro', 'Spatial computing headset', 'AVP-24-123456', '2024-02-02', 7, 4, 'A01', 'Z');
+
+INSERT INTO user_profile (name_user_profile)
+VALUES ('administrator'),
+       ('superuser'),
+       ('junior');
+
+INSERT INTO users (firstname_user, lastname_user, email_user, phone_user, password_user, creation_date_user,
+                   active_user, street_user, city_user, postal_code_user, country_user, id_user_profile)
+VALUES ('Jean', 'Dupont', 'jean.dupont@example.com', '0612345678',
+        '$2a$10$xPPCQ1SAhV83ZGUQklMwVeO75.W8yg4GZ/zUQMd1QA7a7MHBxzcNG', '2023-05-15', true, '12 Rue des Jardins',
+        'Metz', '57000', 'France', 1),
+       ('Marie', 'Martin', 'marie.martin@example.com', '0723456789',
+        '$2a$10$P5bKGN.Cg0pQUqOhFBO7f.u1L9KbpYYPEZ.L94YqbqLQVSjAl8M7q', '2023-06-20', true, '8 Avenue Victor Hugo',
+        'Paris',
+        '75016', 'France', 1),
+       ('Pierre', 'Bernard', 'pierre.bernard@example.com', '0634567890',
+        '$2a$10$NBWJ0KGqoU1HUmGQgpDRGeBGe1g6VH3IG48SP9s0.p4b4D9rZlIdi', '2023-07-10', true, '25 Boulevard Gambetta',
+        'Woippy',
+        '57140', 'France', 2),
+       ('Sophie', 'Petit', 'sophie.petit@example.com', '0645678901',
+        '$2a$10$CXA8NwUv8UCKaGkk/0KgG.cOXtyXZ7dG4AjfxrFliKGIhG94VfS9i', '2023-08-05', true, '5 Rue du Commerce',
+        'Montigny-lès-Metz', '57950', 'France', 2),
+       ('Thomas', 'Robert', 'thomas.robert@example.com', '0656789012',
+        '$2a$10$xQEJJB2JSbmGc9/.3MrxGOTEJykywSUPIfbJHgvVLxe5UDHxKwDDO', '2023-09-12', true, '18 Rue des Fleurs', 'Metz',
+        '57000', 'France', 3),
+       ('Laura', 'Moreau', 'laura.moreau@example.com', '0767890123',
+        '$2a$10$4Oy85mW7IcQgMJe9.2DWWOqJ1mK81UrC7ZPcRyBh/pNYiI1L5kAVO', '2023-10-08', false, '42 Avenue Jean Jaurès',
+        'Metz',
+        '57000', 'France', 3),
+       ('Nicolas', 'Laurent', 'nicolas.laurent@example.com', '0678901234',
+        '$2a$10$GiLt2T8t8TEYCxqXxJzQBONUZs2iQUnCjZV52d9IV6b4LMI2G2/Aq', '2023-11-15', true, '9 Rue Lafayette', 'Metz',
+        '57000',
+        'France', 3),
+       ('Emma', 'Simon', 'emma.simon@example.com', '0689012345',
+        '$2a$10$TqIk7dDnhFQJq4lWVTbC1.S.r9xBaGPdegcCzc5cQRvwjrp9ZsQUK', '2023-12-20', true, '31 Rue de la République',
+        'Thionville', '57100', 'France', 3),
+       ('Antoine', 'Michel', 'antoine.michel@example.com', '0690123456',
+        '$2a$10$FDfUiB.QTjQMDhiQYKQp7exuQYrJ37v/2RlFBw2UJCRbavxBaLesW', '2024-01-25', true, '14 Boulevard des Alpes',
+        'Thionville', '57100', 'France', 3),
+       ('Camille', 'Leroy', 'camille.leroy@example.com', '+33701234567',
+        '$2a$10$XTzMnNePt5QUj2UEkUHNuOAj.UYJC6hx8tqzj5vIMrgFi8ElrxYoG', '2024-02-18', true, '27 Rue Saint-Michel',
+        'Ars-sur-Moselle', '57130', 'France', 3);

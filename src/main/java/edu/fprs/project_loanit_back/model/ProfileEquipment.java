@@ -12,15 +12,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class ProfilEquipment {
+public class ProfileEquipment {
 
 
     //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    protected String idProfilEquipment;
+    protected String idProfileEquipment;
 
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class) // A quoi ça sert???
-    protected String nameProfilEquipment;
+    protected String nameProfileEquipment;
 }

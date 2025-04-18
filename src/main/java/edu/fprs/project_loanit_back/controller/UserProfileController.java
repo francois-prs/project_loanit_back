@@ -21,12 +21,10 @@ public class UserProfileController {
         this.userProfileDao = userProfileDao;
     }
 
-
     //Get all user profiles return List of all user profiles
     @GetMapping("/userprofile")
-    public ResponseEntity<List<UserProfile>> getAllUserProfiles() {
-        List<UserProfile> userProfiles = userProfileDao.findAll();
-        return new ResponseEntity<>(userProfiles, HttpStatus.OK);
+    public List<UserProfile> getAll() {
+        return userProfileDao.findAll();
     }
 
     //Get a user profile by ID / @param id The ID of the user profile / * @return The user profile if found
@@ -43,10 +41,10 @@ public class UserProfileController {
     }
 
     //Create a new user profile /@param userProfile The user profile to create /@return The created user profile
-    @PostMapping
-    public ResponseEntity<UserProfile> createUserProfile(@RequestBody UserProfile userProfile) {
-        UserProfile savedUserProfile = userProfileDao.save(userProfile);
-        return new ResponseEntity<>(savedUserProfile, HttpStatus.CREATED);
+    @PostMapping("/userprofiles")
+    public ResponseEntity<UserProfile> save(@RequestBody UserProfile userProfile) {
+        userProfileDao.save(userProfile);
+        return new ResponseEntity<>(userProfile, HttpStatus.CREATED);
     }
 
     //Update an existing user profile
@@ -68,14 +66,18 @@ public class UserProfileController {
 //    }
 
     // Delete a user profil /@param id The ID of the user profile to delete /@return No content response
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUserProfile(@PathVariable Integer id) {
-        return userProfileDao.findById(id)
-                .map(userProfile -> {
-                    userProfileDao.delete(userProfile);
-                    return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-                })
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @DeleteMapping("/userprofiles/{id}")
+    public ResponseEntity<UserProfile> delete(@PathVariable Integer id) {
+
+        Optional<UserProfile> optionalUserProfile = userProfileDao.findById(id);
+
+        if (optionalUserProfile.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        userProfileDao.deleteById(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

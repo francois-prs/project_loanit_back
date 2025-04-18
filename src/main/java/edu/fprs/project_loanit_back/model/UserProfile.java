@@ -15,15 +15,12 @@ public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // IDENTITY = auto incrementation de mySQL
-    protected Integer id; //Integer etant un objet il peut avoir une valeur nulle
+    protected Integer idUserProfile; //Integer etant un objet il peut avoir une valeur nulle
 
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String nameUserprofil;
-
-    @Column(columnDefinition = "TEXT", nullable = false)
-    protected String descriptionUserprofil;
+    protected String nameUserProfile;
 
 
 }

@@ -55,8 +55,8 @@ public class Equipment {
     protected ConditionEquipment conditionEquipment;
 
     @ManyToOne
-    @JoinColumn(name = "id_profil_equipment", nullable = false)
-    private ProfilEquipment profilEquipment;
+    @JoinColumn(name = "id_profile_equipment", nullable = false)
+    private ProfileEquipment profileEquipment;
 
     @ManyToOne
     @JoinColumn(name = "id_status_equipment", nullable = false)

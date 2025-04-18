@@ -68,23 +68,23 @@ public class Users {
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String street;
+    protected String streetUser;
 
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String city;
+    protected String cityUser;
 
     @Column(nullable = false)
     @NotBlank
     @Pattern(regexp = "^\\d{5}$", message = "Postal code must be 5 digits")
     @JsonView(Affichage.class)
-    protected String postalCode;
+    protected String postalCodeUser;
 
     @Column(nullable = false)
     @NotBlank
     @JsonView(Affichage.class)
-    protected String country;
+    protected String countryUser;
 
 //    // In case we go for a ENUM instead of separate Table in db
 //    @Enumerated(EnumType.STRING)
